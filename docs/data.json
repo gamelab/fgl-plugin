@@ -1,0 +1,134 @@
+{
+    "project": {
+        "name": "FGL",
+        "description": "This plugin integrates your game with the FGL ecosystem.",
+        "version": "1.0.0",
+        "url": "http://kiwijs.org/"
+    },
+    "files": {
+        "src/FGL-1.0.0.js": {
+            "name": "src/FGL-1.0.0.js",
+            "modules": {
+                "Plugins": 1
+            },
+            "classes": {
+                "Kiwi.Plugins.FGL": 1,
+                "Kiwi.Plugins.FGL.FGL": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Kiwi.Plugins": 1,
+                "Kiwi.Plugins.FGL": 1
+            }
+        }
+    },
+    "modules": {
+        "Kiwi": {
+            "name": "Kiwi",
+            "submodules": {
+                "Plugins": 1
+            },
+            "classes": {
+                "Kiwi.Plugins.FGL": 1,
+                "Kiwi.Plugins.FGL.FGL": 1
+            },
+            "fors": {},
+            "namespaces": {
+                "Kiwi.Plugins": 1,
+                "Kiwi.Plugins.FGL": 1
+            },
+            "file": "src/FGL-1.0.0.js",
+            "line": 24
+        },
+        "Plugins": {
+            "name": "Plugins",
+            "submodules": {},
+            "classes": {
+                "Kiwi.Plugins.FGL": 1,
+                "Kiwi.Plugins.FGL.FGL": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {
+                "Kiwi.Plugins": 1,
+                "Kiwi.Plugins.FGL": 1
+            },
+            "module": "Kiwi",
+            "namespace": "",
+            "file": "src/FGL-1.0.0.js",
+            "line": 24,
+            "description": "The basic FGL integration Object. Contains name and version number."
+        }
+    },
+    "classes": {
+        "Kiwi.Plugins.FGL": {
+            "name": "Kiwi.Plugins.FGL",
+            "shortname": "Kiwi.Plugins.FGL",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins",
+            "file": "src/FGL-1.0.0.js",
+            "line": 1,
+            "description": "The basic FGL integration Object. Contains name and version number."
+        },
+        "Kiwi.Plugins.FGL.FGL": {
+            "name": "Kiwi.Plugins.FGL.FGL",
+            "shortname": "Kiwi.Plugins.FGL.FGL",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.FGL",
+            "file": "src/FGL-1.0.0.js",
+            "line": 24,
+            "description": "A Kiwi Plugin that hooks into and can extend the FGL SDK.\n\nYou will need the fgl.js file from https://www.fgl.com/other/html5opportunities/ to implement this correctly. Load the fgl.js BEFORE this plugin in your html document.\n\nYou can call any inbuilt FGL function by targeting \"fgl\" or \"this.game.FGL.fgl\" anywhere within your game, and any function within this plugin by targeting \"this.game.FGL\".\n\nConsult the FGL SDK for the full list of FGL functions.",
+            "extends": "Entity",
+            "is_constructor": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/FGL-1.0.0.js",
+            "line": 60,
+            "description": "Add a Branding Logo button to the state. The button is a sprite with a 250*100 hitbox. If the user clicks this box, it calls \"fgl.handleBrandingClick()\".\n\nThis method transfers the logo into a new 256*128 canvas. Kiwi.js WebGL rendering strongly recommends power-of-two texture sizes for device compatibility.\n\nThe canvas is added to a texture atlas called \"fglBrandingLogo\". This atlas is not persistent and will have to be recreated if you switch states. Ordinarily this should not be a problem: it is created as part of the button.\n\nBecause the Branding Logo is not always enabled in FGL games, this method may return \"null\". In this case, your game will not display a Branding Logo. Ensure that your content will display correctly in both cases.",
+            "itemtype": "method",
+            "name": "addBrandingLogo",
+            "params": [
+                {
+                    "name": "state",
+                    "description": "The state within which the button is added.",
+                    "type": "Kiwi.State"
+                },
+                {
+                    "name": "x",
+                    "description": "X-coordinate",
+                    "type": "Number"
+                },
+                {
+                    "name": "y",
+                    "description": "Y-coordinate",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "A sprite which can be clicked. Returns \"null\" if branding is not enabled.",
+                "type": "Kiwi.GameObjects.Sprite"
+            },
+            "access": "public",
+            "tagname": "",
+            "class": "Kiwi.Plugins.FGL.FGL",
+            "module": "Kiwi",
+            "submodule": "Plugins",
+            "namespace": "Kiwi.Plugins.FGL"
+        }
+    ],
+    "warnings": []
+}

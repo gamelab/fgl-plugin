@@ -1,0 +1,381 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Kiwi.js Plugin &bull; FGL HTML5 SDK</title>
+        <style>
+            * {
+                -webkit-print-color-adjust: exact;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: #FFFFFF;
+            }
+            #page {
+                width: 900px;
+                background-color: #FFFFFF;
+                margin: auto;
+                position: relative;
+                height: 1240px;
+                page-break-after:always;
+            }
+            .page-logo {
+                position: absolute;
+                top: 0px;
+                right: 10px;
+                width: 60px;
+            }
+            
+            .page-footer {
+                position: absolute;
+                bottom: 0px;
+                right: 10px;
+                width: 120px;
+            }
+            
+            .footer-text {
+                position: absolute;
+                bottom: 10px;
+                left: 40px;
+                color: #ABABAB;
+                font-family: 'Helvetica Neue LT Com 45 Light', 'Helvetica Neue LT Com';
+            }
+            
+            h1 {
+                margin: 0;
+                padding-top: 272px;
+                padding-left: 90px;
+                padding-right: 40px;
+                font-size: 64px;
+                font-family: 'Helvetica Neue LT Com 45 Light', 'Helvetica Neue LT Com';
+                font-weight: normal;
+                color: #CA4343;
+            }
+            
+            h2 {
+                margin: 0;
+                padding-top: 65px;
+                padding-left: 90px;
+                padding-right: 40px;
+                font-size: 34px;
+                font-family: 'Helvetica Neue LT Com 45 Light', 'Helvetica Neue LT Com';
+                font-weight: normal;
+                color: #CA4343;
+            }
+            
+            h2 i {
+                color: #00F;
+            }
+            
+            .headpara {
+                padding: 50px 90px 0px 90px;
+                margin: 0;
+                font-family: 'Helvetica Neue LT Com 45 Light', 'Helvetica Neue LT Com';
+                color: #444444;
+                font-size: 26px;
+            }
+            
+            .headpara.tight {
+                padding: 20px 90px 0px 90px;
+            }
+            
+            .break {
+                border-bottom: 1px solid #DEDEDE;
+            }
+            
+            .light {
+                color: #C44;
+            }
+            
+            .files {
+                padding: 0px 120px;
+                list-style: none;
+                font-family: 'Helvetica Neue LT Com 45 Light', 'Helvetica Neue LT Com';
+            }
+            
+            .files ul {
+                padding: 0;
+                margin: 0;
+            }
+            
+            .files li {
+                font-size: 20px;
+                color: #CA4343;
+                font-family: 'Helvetica Neue LT Com 45 Light', 'Helvetica Neue LT Com';
+            }
+            
+            .files li div {
+                color: #333333;
+                font-size: 16px;
+                font-family: 'Helvetica Neue LT Com 45 Light', 'Helvetica Neue LT Com';
+                padding-left: 50px;
+                padding-bottom: 10px;
+            }
+            
+            code, .code {
+                background-color: #FFEE99;
+                padding: 2px;
+                border-radius: 4px;
+            }
+            
+            .smaller {
+                font-size: 80%;
+            }
+            
+            .small {
+                font-size: 60%;
+            }
+            
+            .code i {
+                font-weight: bold;
+                color: #662200;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='page'>
+            <img class='page-logo' src='logo.png' />
+            <h1>FGL SDK for HTML5:<br />Official Kiwi.js Plugin</h1>
+            <p class='headpara'>The official FGL Kiwi.js Plugin helps you to use all the FGL SDK features in a <a href="http://www.kiwijs.org">Kiwi.js</a> project. This document will show you how to use sponsor branding, cross promotion and in-app purchase "unlock" buttons using Kiwi.js constructs.
+            <br /><br /><br /></p>
+            <div class='break'></div>
+            <p class='headpara'>Version 1.0.0 <span class='light'>2014 November 19</span></p>
+            <img class='page-footer' src='footer.png' />
+            <div class='footer-text'>Version 1.0.0 - 2014 November 19</div>
+        </div>
+        
+        <div id='page'>
+            <img class='page-logo' src='logo.png' />
+            <h2>Note</h2>
+            <p class='headpara'>This document offers Kiwi.js Plugin specific implementation details as well as an overview of the methods and features available to the FGL Kiwi.js plugin. You can also refer to the standard FGL HTML5 SDK documentation as it is fully compatible with Kiwi.js, and many of the methods will be exactly the same as those documented here.</p>
+
+            <div class='headpara tight'>Note that most FGL features will only display under certain circumstances. It is up to you to check for these circumstances, and ensure that your game can cope with multiple layouts. FGL provides convenient checks to let you know what features are currently enabled. These are described in the relevant sections.</div>
+            
+            <img class='page-footer' src='footer.png' />
+            <div class='footer-text'>Version 1.0.0 - 2014 November 19</div>
+        </div>
+        
+        <div id='page'>
+            <img class='page-logo' src='logo.png' />
+            <h2>Getting Started</h2>
+            <ol class='headpara'>
+
+                <li>Copy either the <em><strong>FGL-1.0.0.js</strong></em> or the <em><strong>FGL-1.0.0.min.js</strong></em> file into your project directory.</li>
+
+                <li>Download the FGL SDK from <em><strong>https://www.fgl.com/other/html5opportunities/</strong></em> and copy the <em><strong>fgl.js</strong></em> file into your project directory.</li>
+
+                <li>Link in the JavaScript file <em><strong>fgl.js</strong></em> into your HTML file. Make sure you link it in before the link to the main Kiwi.js file.</li>
+
+                <li>Link in the JavaScript file <em><strong>FGL-1.0.0.js</strong></em> (or the min version) into your HTML file. Make sure you link it in underneath the link to the main Kiwi.js file AND underneath the Cocoon files if you are using Cocoon.</li>
+                
+                <li>When you're done, it should look like this:</li>
+                
+                <div class='headpara tight' style='margin-left: -20%; width: 800px'>
+                <pre class='code small'>
+  &lt;script src="fgl.js"</i>&gt;&lt;/script&gt;
+  &lt;script src="kiwi.js"</i>&gt;&lt;/script&gt;
+  &lt;script src="FGL-1.0.0.js"</i>&gt;&lt;/script&gt;</pre>
+            </div><br>
+
+                <li>When creating your Kiwi.js game, you must load the FGL plugin. Do this by passing it as a property of the gameOptions:</li>
+
+                <div class='headpara tight' style='margin-left: -20%; width: 800px'>
+                <pre class='code small'>
+  var gameOptions = { plugins: [ "FGL" ] };
+  var game = new Kiwi.Game( domTarget, "Game Name", null, gameOptions );</pre>
+            </div><br>
+
+                <li>You can now begin to add SDK functionality to your game's code. You may access all core methods using the <code>fgl</code> object, or via <code>game.FGL.fgl</code> where <code>game</code> is your game object. You may also access Kiwi-specific helpers via <code>game.FGL</code>.</li>
+            </ol>
+            <img class='page-footer' src='footer.png' />
+            <div class='footer-text'>Version 1.0.0 - 2014 November 19</div>
+        </div>
+
+        <div id='page'>
+            <img class='page-logo' src='logo.png' />
+            <h2>Displaying Ads</h2>
+            <div class='headpara'>You can call a function to display a takeover ad at any time. The advert will be displayed on top of your game and will display a close button for the user.</div>
+            <div class='headpara tight'>We can control which ad networks run on your game, and we are constantly optimizing the inventory on your behalf to get the best possible return. The ads are player-friendly and can be immediately dismissed.</div>
+            <div class='headpara tight'>Call the following function when appropriate, for example when the user reaches the main menu, or between levels on your game:
+                <pre class='code'>fgl.showAd();</pre>
+            </div>
+            
+            <img class='page-footer' src='footer.png' />
+            <div class='footer-text'>Version 1.0.0 - 2014 November 19</div>
+        </div>
+        
+        
+        <div id='page'>
+            <img class='page-logo' src='logo.png' />
+            <h2>Cross Promotion</h2>
+            <div class='headpara'>To take advantage of our powerful cross-promotion system, you should implement a <i>"More Games"</i> button on your main menu.</div>
+            <div class='headpara tight'>When tapped, this button will display an overlay which will cross promote to other games in our network. By doing this, your game will obtain significant promotion at launch, when it needs it most.</div>
+            <div class='headpara tight'>To display a 'More Games' button, use the <code>fgl.showMoreGames</code> method. We suggest you bind this to a game object in your menu:
+                
+<p><pre class='code small'>
+  // Where "state" is the state to which you are adding the button.
+  // We assume you have created your own "moreGames" texture.
+  var moreGamesButton = new Kiwi.GameObjects.Sprite(
+      state, state.textures.moreGames, 310, 312 );
+  moreGamesButton.input.onUp.add( fgl.showMoreGames, state );
+  state.addChild( moreGamesButton );
+</pre></p>
+
+            </div>
+            <div class='headpara tight'><em>(Continued on next page)</em></div>
+            
+            <img class='page-footer' src='footer.png' />
+            <div class='footer-text'>Version 1.0.0 - 2014 November 19</div>
+        </div>
+        
+        
+        <div id='page'>
+        	<img class='page-logo' src='logo.png' />
+            <h2>Cross Promotion (cont.)</h2>
+            
+            <div class='headpara'>Not all target platforms allow cross promotion. You must check this when constructing your scene, and only display a <i>More Games</i> button when it is permitted:
+                <p><pre class='code small'>
+  if ( fgl.crossPromotionEnabled ) {
+      <i>// Cross promotion is enabled</i>
+  } else {
+      // Provide fallbacks
+  }</pre></p>
+            </div>
+            <div class='headpara tight'>You can test your implementation by using the Test Session Options on the intro screen of the FGL SDK:<br />
+            <br />
+            <img src="tso-crosspromo.png" width='700' /></div>
+            
+            <img class='page-footer' src='footer.png' />
+            <div class='footer-text'>Version 1.0.0 - 2014 November 19</div>
+        </div>
+        
+        <div id='page'>
+            <img class='page-logo' src='logo.png' />
+            <h2>Premium Model</h2>
+            <div class='headpara'>To most effectively monetize your game on the various platforms, we offer a simple set of features to allow us to sell a full or premium version of your game.</div>
+            <div class='headpara tight'>The system works by allowing you to check if the game is running in premium or free mode:
+                <pre class='code small'>
+  if ( fgl.isPremium() ) {
+      <i>// Allow premium content</i>
+  }</pre>
+                You should use this feature to restrict content or features when your game is running in free mode. This will help your game to upsell to premium. You do not need to disable/hide ads yourself as the SDK will automatically hide ads for you when the game is running in premium mode.
+            </div>
+            <div class='headpara tight'>On many platforms your game will be unlockable to premium by a simple in-app purchase. You should take advantage of this by using the <code>fgl.fgl.inApp.initiateUnlockFunction</code> method, for example:
+                          
+<p><pre class='code small'>
+  state.premiumUnlockButton = new Kiwi.GameObjects.Sprite(
+      state, state.textures.premiumUnlock, 20, 312 );
+  state.premiumUnlockButton.input.onUp.add( attemptUnlock, state );
+
+  var attemptUnlock = function() {
+      <strong>fgl.inApp.initiateUnlockFunction</strong>( unlockSucceeded, unlockFailed );
+  };
+</pre></p>
+            You should provide fallbacks for markets where in-app purchases are not allowed. By using this method we can still sell a premium version of your game on markets which don't support in-app purchases, as well as distributing a free ad-supported version of your game.
+            </div>
+            <div class='headpara tight'><em>(Continued on next page)</em></div>
+        	
+            <img class='page-footer' src='footer.png' />
+            <div class='footer-text'>Version 1.0.0 - 2014 November 19</div>
+        </div>
+        
+        
+        <div id='page'>
+            <img class='page-logo' src='logo.png' />
+            <h2>Premium Model (cont.)</h2>
+            <div class='headpara'>If you would like to detect whether in-app purchases are allowed:
+                <p><pre class='code small'>  if ( fgl.unlockEnabled ) {
+      <i>// In-app unlock is enabled</i>
+  }</pre></p>
+            </div>
+            <div class='headpara tight'>When tapped/clicked, your unlock button will take the player through the in-app purchase and eventually will trigger the callback functions you passed to the <code>fgl.inApp.initiateUnlockFunction</code> method.
+                <p><pre class='code small'>
+  <i>// On Success:</i>
+  var unlockSuccess = function() {
+      <i>// Success! Unlock your game's premium content here.</i>
+  };
+      
+  <i>// On Failure:</i>
+  var unlockFailed = function() {
+      <i>// Make sure premium content is locked here</i>
+      <i>// Do not notify the user, that is handled by the SDK</i>
+  };
+  
+  fgl.inApp.initiateUnlockFunction( <strong>unlockSucceeded</strong>, <strong>unlockFailed</strong> );</pre></p>
+            </div>
+            <div class='headpara tight'>You can test your implementation by using the Test Session Options on the intro screen of the FGL SDK:</div>
+            <div class='headpara tight'><img src="tso-premium.png" width='700' /></div>
+            <img class='page-footer' src='footer.png' />
+            <div class='footer-text'>Version 1.0.0 - 2014 November 19</div>
+        </div>
+        
+        <div id='page'>
+            <img class='page-logo' src='logo.png' />
+            <h2>Publisher Branding</h2>
+            <div class='headpara'>To further monetize your game, sometimes we may have the option to sell a "sponsorship branded" version of your game to a publisher, much like on the FGL Game Shop. If you would like your game to be able to make money in this way, then you must implement our simple publisher branding functionality.</div>
+            <div class='headpara tight'>You should display the image on your main menu, and in any other menus where it make sense. Publishers will be able to see where their branding will show up in your game before they purchase, so placing the branding somewhere non-prominent such as only in the credits menu may result in fewer sales.</div>
+            <div class='headpara tight'>To show publisher branding in your game, call the following method:
+                <p><pre class='code small'>  game.FGL.addBrandingLogo( state, x, y )</pre></p>
+                <p><pre class='code small'><i>  // Add some publisher branding</i>
+  this.game.FGL.addBrandingLogo( this, 335, 15 );</pre></p>
+            </div>
+            <div class='headpara tight'>You must detect whether branding is enabled before attempting to display a branding logo:
+            <p><pre class='code small'>  if ( fgl.brandingEnabled ) {
+      <i>// Publisher branding is enabled</i>
+  }</pre></p>
+            </div>
+            <div class='headpara tight'><em>(Continued on next page)</em></div>
+            
+            <img class='page-footer' src='footer.png' />
+            <div class='footer-text'>Version 1.0.0 - 2014 November 19</div>
+        </div>
+        
+        <div id='page'>
+            <img class='page-logo' src='logo.png' />
+            <h2>Publisher Branding (cont.)</h2>
+            <div class='headpara'>When you implement publisher branding, you should see a test branding placeholder. This will help you to properly position the logo on your menu screens.</div>
+            <div class='headpara tight'>The image should always be 250px by 100px in size and will have a transparent background:<br />
+            <center><img src='brand_placeholder.png' width='290' height='140' /><div style='font-size: 13px;'>Example sponsor logo image</div></center></div>
+            <div class='headpara tight'>You can test your implementation by checking the "Show sponsor branding" option from the Test Session Options on the intro screen of the FGL SDK:</div>
+            <div class='headpara tight'><img src="tso-branding.png" width='700' /></div>
+            <div class='headpara tight'>See the core FGL documentation for more information on methods related to publisher branding. You may still choose to call those methods directly, but you will have to jump through many hoops to get the same result: cross-site resource loading security permissions, the specific dimensions of the publisher branding logo, etc. The <code>addBrandingLogo</code> method does all the work for you.</div>
+            <img class='page-footer' src='footer.png' />
+            <div class='footer-text'>Version 1.0.0 - 2014 November 19</div>
+        </div>
+        
+        <div id='page'>
+            <img class='page-logo' src='logo.png' />
+            <h2>Scoreboards</h2>
+            <div class='headpara'>Our generic leaderboard functions allow you to implement one simple set of leaderboard calls - we can then do all the work to make your HTML5 game use the best leaderboard system for each platform. This gives your game an advantage as many platforms will give additional promotion or exposure to games which integrate with their proprietary systems.</div>
+            <div class='headpara tight'>The following functions are available:
+                <pre class='code small'><i>  // Submit the score in response to a user pressing a submit button:</i>
+  fgl.submitScore( <i>score</i> );
+
+  <i>// Show the scoreboard UI. This happens automatically after submitScore:</i>
+  fgl.displayScoreboard();</pre>
+            
+            See the FGL HTML5 SDK documentation for further details.
+            </div>
+            <img class='page-footer' src='footer.png' />
+            <div class='footer-text'>Version 1.0.0 - 2014 November 19</div>
+        </div>  
+        
+        <div id='page'>
+            <img class='page-logo' src='logo.png' />
+            <h2>Achievements</h2>
+            <div class='headpara'>Like leaderboards, achievements can help boost the popularity and promotion of your game by allowing our system to tie in to the best solutions for each platform.</div>
+            <div class='headpara tight'>The following functions are available:
+                <pre class='code small'><i>  // Grant a named achievement to the player:</i>
+  fgl.grantAchievement( <i>name</i> );
+  
+  <i>// Check if the player has previously been granted an achievement:</i>
+  <i>boolean</i> fgl.hasAchievement( <i>name</i> );</pre>
+            
+            See the FGL HTML5 SDK documentation for further details.
+            </div>
+            <img class='page-footer' src='footer.png' />
+            <div class='footer-text'>Version 1.0.0 - 2014 November 19</div>
+        </div>   
+        
+    </body>
+</html>
